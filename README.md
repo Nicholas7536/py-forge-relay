@@ -2,6 +2,12 @@
 
 Asynchronous bi-directional chat relay and event pipeline between Minecraft and Discord using Python asyncio, WebSockets, and thread-isolated RCON.
 
+## Project Context
+
+This project was originally developed and operated on a headless Linux (Ubuntu) server. This repository contains the modular, reconstructed Python skeleton of the core relay pipeline.
+
+It assumes you already have a Minecraft-to-Python connection in place—specifically, the original deployment used a custom Minecraft Forge mod to push in-game events over WebSockets. If you are integrating this with a different server or mod loader (e.g. Paper, Fabric), you only need to match the simple WebSocket packet format defined in this document.
+
 ## Overview
 
 - **Minecraft to Discord**: The Minecraft server (Forge mod) opens a local WebSocket connection to Python and streams JSON event packets (`chat`, `join`, `leave`, `death`). Python relays them to the configured Discord channel.
